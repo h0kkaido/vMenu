@@ -12,11 +12,6 @@
 # vMenu
 vMenu is server sided menu for FiveM servers, including full\* permission support.
 
-### Demo Screenshots
-
-|Main Menu|Player Options|
-|:-:|:-:|
-|![Main Menu](https://www.vespura.com/hi/i/fef17e5.png)|![Player Options](https://www.vespura.com/hi/i/458b6e4.png)|
 
 \*(Some features do not have permissions support as they are either harmless or it'd just be silly to deny them. However, they will be disabled if you deny access to the submenu that they are a part of (eg: unlimited stamina in Player Options will be disabled if you deny `vMenu.PlayerOptions.Menu`.))
 
@@ -81,22 +76,9 @@ vMenu v2.0.0 and earlier was [using a modified version of NativeUI](https://gith
 
 Tom Grobbe - https://www.vespura.com/
 
-Copyright © 2017-2019
+Copyright © 2017-2020
 
+----
 
-THIS PROJECT USES A CUSTOM LICENSE. MAKE SURE TO READ IT BEFORE THINKING ABOUT DOING ANYTHING WITH VMENU.
-
-
-- YOU ARE ALLOWED TO USE VMENU ON AS MANY SERVERS AS YOU WANT.
-- _YOU ARE ALSO ALLOWED TO EDIT THIS RESOURCE TO ADD/CHANGE/REMOVE WHATEVER YOU WANT._ (see the exception to this rule in the "credits" section below)
-- **YOU ARE HOWEVER _NOT_ ALLOWED TO RE-RELEASE (EDITED OR NON-EDITED) VERSIONS OF THIS RESOURCE WITHOUT WRITTEN PERMISSIONS BY MYSELF (TOM GROBBE / VESPURA). FOR ADDED FEATURES/CHANGES, FEEL FREE TO CREATE A FORK & CREATE A PULL REQUEST.**
-
-
-**Credits**
-
-Never should you change the credits (for example in the in-game menu's about section) to claim this menu to be your own. 90% of the users will recognize this menu as being vMenu, so changing the name of it and removing the credits section, is just useless. You're just being extremely rude and nodoby likes you anymore if they find out you're a big fat liar.
-
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
-
+You can use and edit this code to your liking. However don't ever claim it to be your own code and always provide proper credit.
+I will, however, not help you if you want to modify my code.

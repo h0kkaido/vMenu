@@ -200,12 +200,12 @@ namespace vMenuServer
                                 {
                                     if (args.Count == 3 && !string.IsNullOrEmpty(args[2].ToString()))
                                     {
-                                        if ((args[2].ToString().ToLower() ?? $"{dynamicWeather.ToString()}") == "true")
+                                        if ((args[2].ToString().ToLower() ?? $"{dynamicWeather}") == "true")
                                         {
                                             TriggerEvent("vMenu:UpdateServerWeather", currentWeather, blackout, true);
                                             Debug.WriteLine("[vMenu] Dynamic weather is now turned on.");
                                         }
-                                        else if ((args[2].ToString().ToLower() ?? $"{dynamicWeather.ToString()}") == "false")
+                                        else if ((args[2].ToString().ToLower() ?? $"{dynamicWeather}") == "false")
                                         {
                                             TriggerEvent("vMenu:UpdateServerWeather", currentWeather, blackout, false);
                                             Debug.WriteLine("[vMenu] Dynamic weather is now turned off.");
@@ -416,7 +416,6 @@ namespace vMenuServer
                     CallbackFunction(JsonConvert.SerializeObject(data));
                 }));
                 EventHandlers.Add("vMenu:GetOutOfCar", new Action<Player, int, int>(GetOutOfCar));
-                EventHandlers.Add("vMenu:IsResourceUpToDate", new Action<Player>(IsResourceUpToDate));
                 EventHandlers.Add("vMenu:SendMessageToPlayer", new Action<Player, int, string>(SendPrivateMessage));
                 EventHandlers.Add("vMenu:PmsDisabled", new Action<Player, string>(NotifySenderThatDmsAreDisabled));
                 EventHandlers.Add("vMenu:SaveTeleportLocation", new Action<Player, string>(AddTeleportLocation));
@@ -564,7 +563,7 @@ namespace vMenuServer
                 if (dynamicWeather)
                 {
                     // Disable dynamic weather because these weather types shouldn't randomly change.
-                    if (currentWeather == "XMAS" || currentWeather == "HALLOWHEEN" || currentWeather == "NEUTRAL")
+                    if (currentWeather == "XMAS" || currentWeather == "HALLOWEEN" || currentWeather == "NEUTRAL")
                     {
                         dynamicWeather = false;
                         return;
@@ -874,30 +873,6 @@ namespace vMenuServer
             }
         }
 
-        /// <summary>
-        /// Tells the player if the resource is currently up to date.
-        /// </summary>
-        /// <param name="source"></param>
-        public static void IsResourceUpToDate([FromSource]Player source)
-        {
-            if (!UpToDate)
-            {
-                string updaterMessage = string.IsNullOrEmpty(UpdateMessage) ? "" : ("Message: " + UpdateMessage);
-
-                if (GetSettingsBool(Setting.vmenu_outdated_version_notify_players))
-                {
-                    source.TriggerEvent("vMenu:OutdatedResource", $"Current: {Version}. Latest: {UpdaterVersion}. {updaterMessage}");
-                }
-                else
-                {
-                    // Staff will always receive this message, whether they like it or not.
-                    if (vMenuShared.PermissionsManager.IsAllowed(vMenuShared.PermissionsManager.Permission.Staff, source))
-                    {
-                        source.TriggerEvent("vMenu:OutdatedResource", $"Current: {Version}. Latest: {UpdaterVersion}. {updaterMessage}");
-                    }
-                }
-            }
-        }
         #endregion
 
         #region Add teleport location
